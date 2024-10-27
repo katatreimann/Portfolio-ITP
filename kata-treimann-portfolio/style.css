@@ -1,12 +1,20 @@
+/* CSS Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 /* Design tokens */
 :root {
-  --paper: hsla(251, 28%, 88%, 0.99);
+  --paper: hsla(293, 28%, 88%, 0.99);
   --ink: hsla(244, 16%, 17%, 0.95);
-  --brand: hsla(0, 79%, 63%, 0.9);
+  --brand: hsla(298, 35%, 43%, 0.9);
   --font: "Raleway", system-ui, sans-serif;
   --gap: 20px;
   --container: clamp(280px, calc(100vw - calc(var(--gap) * 2)), 1180px);
 }
+
 /* General Styles */
 html,
 body {
@@ -14,14 +22,78 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font);
+  width: 100%;
+  height: 100%;
 }
+
 body {
   display: grid;
-  margin: auto;
   min-height: 100vh;
   gap: var(--gap);
   max-width: var(--container);
+  overflow-x: hidden;
 }
+
+/* Hero Section Styles */
+#hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  width: 100vw;
+  background: #D09FFF;
+}
+
+#hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-text h1 {
+  font-size: 6rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+/* Site header and navigation */
+body>header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  width: 100%;
+  padding: 1rem;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: var(--gap);
+}
+
+/* Link Styles */
 a,
 a:any-link {
   color: currentColor;
@@ -29,29 +101,114 @@ a:any-link {
   border-bottom: 2px solid transparent;
   transition: border-color ease-in-out 0.3s;
 }
+
 a:hover,
 a:focus {
   color: var(--brand);
   border-color: currentColor;
-}
-/* Site header and navigation */
-body > header {
-  background: var(--paper);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: var(--gap);
 }
 
 /* Text readability */
 section p {
   line-height: 1.5;
   max-width: 55ch;
+}
+
+/* Site sections */
+section {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--gap);
+  text-align: center;
+}
+
+#about {
+  height: 100vh;
+  border: 5px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--gap);
+}
+
+section h2 {
+  margin: 1em;
+}
+
+section h3 {
+  margin: 1em;
+}
+
+#projects {
+  max-width: 1000px;
+  height: auto;
+  margin: 0 auto;
+  padding: var(--gap);
+}
+
+.project-card {
+  margin: var(--gap) 0;
+  padding: var(--gap);
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+
+.project-image img {
+  max-width: 80%;
+  height: auto;
+  border-radius: 10px;
+}
+
+
+.project-details {
+  text-align: left;
+  margin-left: var(--gap);
+}
+
+
+.project-card h3 {
+  margin: 0.5em 0;
+}
+
+
+/* Sticky Footer Styles */
+footer {
+  text-align: center;
+  padding: 1rem;
+}
+
+.form-img {
+  border-radius: 15px;
+}
+
+h4 {
+  margin: 1em;
+}
+
+.project-link {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  font-weight: bolder;
+}
+
+
+#contact {
+  /* margin-top: 180px; */
+  height: 100vh;
+    border: 5px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--gap);
 }
